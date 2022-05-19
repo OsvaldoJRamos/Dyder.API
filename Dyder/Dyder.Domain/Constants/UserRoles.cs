@@ -1,4 +1,4 @@
-﻿namespace Dyder.Repository.Auth
+﻿namespace Dyder.Domain.Constants
 {
     public static class UserRoles
     {

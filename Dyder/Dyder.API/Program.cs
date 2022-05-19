@@ -1,6 +1,5 @@
 using Dyder.API.Configuration;
 using Dyder.Repository;
-using Dyder.Repository.Auth;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
