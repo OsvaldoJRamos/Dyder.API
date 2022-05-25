@@ -1,7 +1,8 @@
 ﻿using Dyder.Domain.Entities.Base;
 using Dyder.Repository.Repositories.Interfaces;
+using Dyder.Repository.Repositories.Interfaces.Base;
 
-namespace Dyder.Application.Services._1___Interfaces
+namespace Dyder.Application.Services.Interfaces.Base
 {
     public interface IServiceBase<TEntity, TId, TRepository>
          where TEntity : EntityBase

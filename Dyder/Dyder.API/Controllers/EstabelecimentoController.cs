@@ -3,6 +3,7 @@ using Dyder.Domain.Constants;
 using Dyder.Domain.Dto.Request;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Dyder.Application.Services.Interfaces;
 
 namespace Dyder.API.Controllers
 {

@@ -1,6 +1,7 @@
 ﻿using Dyder.Application.Services;
 using Dyder.Repository.Repositories;
 using Dyder.Repository.Repositories.Interfaces;
+using Dyder.Application.Services.Interfaces;
 
 namespace Dyder.API.Configuration
 {

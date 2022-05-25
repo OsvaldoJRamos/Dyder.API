@@ -1,6 +1,7 @@
-﻿using Dyder.Application.Services._1___Interfaces;
-using Dyder.Domain.Entities.Base;
+﻿using Dyder.Domain.Entities.Base;
 using Dyder.Repository.Repositories.Interfaces;
+using Dyder.Application.Services.Interfaces.Base;
+using Dyder.Repository.Repositories.Interfaces.Base;
 
 namespace Dyder.Application.Services.Base
 {

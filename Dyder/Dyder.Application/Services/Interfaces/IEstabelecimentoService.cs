@@ -1,9 +1,10 @@
-﻿using Dyder.Application.Services._1___Interfaces;
-using Dyder.Domain.Dto.Request;
+﻿using Dyder.Domain.Dto.Request;
 using Dyder.Domain.Entities;
 using Dyder.Repository.Repositories.Interfaces;
+using Dyder.Application.Services;
+using Dyder.Application.Services.Interfaces.Base;
 
-namespace Dyder.Application.Services
+namespace Dyder.Application.Services.Interfaces
 {
     public interface IEstabelecimentoService : IServiceBase<Estabelecimento, long, IEstabelecimentoRepository>
     {

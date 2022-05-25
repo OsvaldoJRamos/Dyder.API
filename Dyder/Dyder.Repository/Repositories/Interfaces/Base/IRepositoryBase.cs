@@ -1,7 +1,8 @@
 ﻿using Dyder.Domain.Entities.Base;
 using System.Linq.Expressions;
+using Dyder.Repository.Repositories.Interfaces;
 
-namespace Dyder.Repository.Repositories.Interfaces
+namespace Dyder.Repository.Repositories.Interfaces.Base
 {
     public interface IRepositoryBase<TEntity, TId> where TEntity : EntityBase
     {

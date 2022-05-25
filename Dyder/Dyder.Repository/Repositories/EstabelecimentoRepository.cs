@@ -1,5 +1,6 @@
 ﻿using Dyder.Domain.Entities;
 using Dyder.Repository.Repositories.Interfaces;
+using Dyder.Repository.Repositories.Base;
 
 namespace Dyder.Repository.Repositories
 {

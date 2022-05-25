@@ -2,8 +2,10 @@
 using Dyder.Repository.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using Dyder.Repository.Repositories.Interfaces.Base;
+using Dyder.Repository.Repositories;
 
-namespace Dyder.Repository.Repositories
+namespace Dyder.Repository.Repositories.Base
 {
     public class RepositoryBase<TEntity, TId> : IRepositoryBase<TEntity, TId> where TEntity : EntityBase
     {
