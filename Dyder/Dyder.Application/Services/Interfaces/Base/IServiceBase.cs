@@ -5,7 +5,7 @@ using Dyder.Repository.Repositories.Interfaces.Base;
 namespace Dyder.Application.Services.Interfaces.Base
 {
     public interface IServiceBase<TEntity, TId, TRepository>
-         where TEntity : EntityBase
+         where TEntity : EntityBase<TId>
          where TRepository : IRepositoryBase<TEntity, TId>
     {
         Task<TEntity> UpdateAsync(TEntity entity, CancellationToken cancellationToken);

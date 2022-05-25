@@ -2,9 +2,8 @@
 
 namespace Dyder.Domain.Entities
 {
-    public class Estabelecimento : EntityBase
+    public class Estabelecimento : EntityBase<long>
     {
-        public long Id { get; private set; }
         public string Nome { get; private set; }
 
         public Estabelecimento(string nome)

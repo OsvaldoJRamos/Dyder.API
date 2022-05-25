@@ -6,7 +6,7 @@ using Dyder.Repository.Repositories.Interfaces.Base;
 namespace Dyder.Application.Services.Base
 {
     public abstract class ServiceBase<TEntity, TId, TRepository> : IServiceBase<TEntity, TId, TRepository>
-                                     where TEntity : EntityBase
+                                     where TEntity : EntityBase<TId>
                                      where TRepository : IRepositoryBase<TEntity, TId>
     {
 

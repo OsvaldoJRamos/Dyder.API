@@ -7,7 +7,7 @@ using Dyder.Repository.Repositories;
 
 namespace Dyder.Repository.Repositories.Base
 {
-    public class RepositoryBase<TEntity, TId> : IRepositoryBase<TEntity, TId> where TEntity : EntityBase
+    public class RepositoryBase<TEntity, TId> : IRepositoryBase<TEntity, TId> where TEntity : EntityBase<TId>
     {
         protected readonly ApplicationDbContext _context;
         protected DbSet<TEntity> _dataset;
