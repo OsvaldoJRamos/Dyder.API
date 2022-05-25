@@ -7,9 +7,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dyder.API", "Dyder.API\Dyde
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyder.Domain", "Dyder.Domain\Dyder.Domain.csproj", "{96C14AC3-2A8E-44D6-8887-CD658FAABE5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyder.Repository", "Dyder.Repository\Dyder.Repository.csproj", "{FF1BE006-DD9C-47FB-ADEC-02C82F80C990}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dyder.Repository", "Dyder.Repository\Dyder.Repository.csproj", "{FF1BE006-DD9C-47FB-ADEC-02C82F80C990}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dyder.Application", "Dyder.Application\Dyder.Application.csproj", "{1DF37698-2871-440F-AEEC-91B3750F9772}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dyder.Application", "Dyder.Application\Dyder.Application.csproj", "{1DF37698-2871-440F-AEEC-91B3750F9772}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AF08D616-4AA7-488B-A2B3-524015A34C0A}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
