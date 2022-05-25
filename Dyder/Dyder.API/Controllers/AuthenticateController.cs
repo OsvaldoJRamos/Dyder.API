@@ -1,6 +1,7 @@
 ﻿using Dyder.API.ViewModels;
 using Dyder.Domain.Constants;
 using Dyder.Domain.Entities.Auth;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -50,11 +51,7 @@ namespace Dyder.API.Controllers
 
                 var token = GetToken(authClaims);
 
-                return Ok(new
-                {
-                    token = new JwtSecurityTokenHandler().WriteToken(token),
-                    expiration = token.ValidTo
-                });
+                return Ok(new JwtSecurityTokenHandler().WriteToken(token));
             }
             return Unauthorized();
         }
@@ -82,6 +79,7 @@ namespace Dyder.API.Controllers
 
         [HttpPost]
         [Route("register-admin")]
+        [Authorize(Roles = UserRoles.Admin)]
         public async Task<IActionResult> RegisterAdmin([FromBody] RegisterModel model)
         {
             var userExists = await _userManager.FindByNameAsync(model.Username);
