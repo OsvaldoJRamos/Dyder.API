@@ -14,6 +14,7 @@ namespace Dyder.Application.Services.Interfaces.Base
         Task DeleteByIdAsync(TId id, CancellationToken cancellationToken);
         Task DeleteManyAsync(TEntity[] entityArray, CancellationToken cancellationToken);
         Task<TEntity> GetByIdAsync(TId id, CancellationToken cancellationToken);
+        Task<bool> ExistsByIdAsync(TId id, CancellationToken cancellationToken);
         Task<bool> SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

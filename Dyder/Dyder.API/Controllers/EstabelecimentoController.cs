@@ -55,7 +55,7 @@ namespace Dyder.API.Controllers
         [HttpDelete]
         [Route("[controller]/{estabelecimentoId}/FormaPagamento/{formaPagamentoId}")]
         //TODO TROCAR PARA ESTABELECIMENTO
-        [Authorize(Roles = UserRoles.Admin)]
+        [Authorize(Policy = UserRoles.Admin)]
         public async Task<IActionResult> ExcluirFormaPagamentoAsync(long formaPagamentoId, long estabelecimentoId, CancellationToken cancellationToken)
         {
             try

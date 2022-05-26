@@ -1,6 +1,6 @@
 ﻿namespace Dyder.Domain.Constants
 {
-    public class UserRoles
+    public class UserClaims
     {
         //private UserRoles(string value) { Value = value; }
         //public string Value { get; private set; }
@@ -9,8 +9,6 @@
         //public static UserRoles User { get { return new UserRoles("User"); } }
         //public static UserRoles Estabelecimento { get { return new UserRoles("Estabelecimento"); } }
 
-        public const string Admin = "Admin";
-        public const string User = "User";
-        public const string Estabelecimento = "Estabelecimento";
-    } 
+        public const string EstabelecimentoId = "EstabelecimentoId";
+    }
 }

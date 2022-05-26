@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.18.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Dyder.Domain\Dyder.Domain.csproj" />
     <ProjectReference Include="..\Dyder.Repository\Dyder.Repository.csproj" />
   </ItemGroup>

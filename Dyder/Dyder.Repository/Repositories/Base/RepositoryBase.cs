@@ -37,7 +37,10 @@ namespace Dyder.Repository.Repositories.Base
            await Task.Run(() => _dataset.RemoveRange(entityArray));
 
         public async Task<TEntity> GetByIdAsync(TId id, CancellationToken cancellationToken) =>
-            await _dataset.FindAsync(id);
+            await _dataset.FindAsync(id);  
+        
+        public async Task<bool> ExistsByIdAsync(TId id, CancellationToken cancellationToken) =>
+            await _dataset.FindAsync(id) != null;
 
         public async Task<List<TEntity>> GetAllAsync(CancellationToken cancellationToken) =>
            await _dataset.ToListAsync(cancellationToken);

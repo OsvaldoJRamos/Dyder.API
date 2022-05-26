@@ -11,6 +11,7 @@ namespace Dyder.API.Configuration
         {
             services.AddScoped<IEstabelecimentoService, EstabelecimentoService>();
             services.AddScoped<IFormaPagamentoService, FormaPagamentoService>();
+            services.AddScoped<IIdentityService, IdentityService>();
         }    
         
         public static void RegisterRepositories(this IServiceCollection services)

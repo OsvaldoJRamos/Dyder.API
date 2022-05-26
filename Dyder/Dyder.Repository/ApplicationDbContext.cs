@@ -61,16 +61,25 @@ namespace Dyder.Repository
         {
             foreach (var entry in ChangeTracker.Entries())
             {
-                switch (entry.State)
+                //TODO TIRAR O TRY E VALIDAR SE entry.CurrentValues["ModificadoEm"] 
+                //EXISTE ANTES DE SETAR O VALOR
+                try
                 {
-                    case EntityState.Modified:
-                        entry.CurrentValues["ModificadoEm"] = DateTime.Now;
-                        break;
-                    case EntityState.Deleted:
-                        entry.State = EntityState.Modified;
-                        entry.CurrentValues["DeletadoEm"] = DateTime.Now;
-                        entry.CurrentValues["EstaAtivo"] = false;
-                        break;
+                    switch (entry.State)
+                    {
+                        case EntityState.Modified:
+                            entry.CurrentValues["ModificadoEm"] = DateTime.Now;
+                            break;
+                        case EntityState.Deleted:
+                            entry.State = EntityState.Modified;
+                            entry.CurrentValues["DeletadoEm"] = DateTime.Now;
+                            entry.CurrentValues["EstaAtivo"] = false;
+                            break;
+                    }
+                }
+                catch (Exception)
+                {
+                    continue;
                 }
             }
         }

@@ -53,6 +53,11 @@ namespace Dyder.Application.Services.Base
         public async Task<TEntity> GetByIdAsync(TId id, CancellationToken cancellationToken)
         {
             return await _repository.GetByIdAsync(id, cancellationToken);
+        }  
+        
+        public async Task<bool> ExistsByIdAsync(TId id, CancellationToken cancellationToken)
+        {
+            return await _repository.ExistsByIdAsync(id, cancellationToken);
         }
 
         public async Task<bool> SaveChangesAsync(CancellationToken cancellationToken)

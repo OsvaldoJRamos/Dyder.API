@@ -13,5 +13,5 @@ namespace Dyder.Domain.Entities.Auth
 
         [Required(ErrorMessage = "Senha é obrigatória")]
         public string? Password { get; set; }
-    }
+    } 
 }
