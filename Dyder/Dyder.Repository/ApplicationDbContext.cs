@@ -1,7 +1,10 @@
 ﻿using Dyder.Domain.Entities;
+using Dyder.Domain.Entities.Base;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
+using System.Linq.Expressions;
 
 namespace Dyder.Repository
 {
@@ -22,7 +25,18 @@ namespace Dyder.Repository
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<EstabelecimentoPagamento>().HasQueryFilter(entity => entity.EstaAtivo);
+            Expression<Func<EntityBase<long>, bool>> filterExpr = bm => bm.EstaAtivo;
+            foreach (var mutableEntityType in builder.Model.GetEntityTypes())
+            {
+                if (mutableEntityType.ClrType.IsAssignableTo(typeof(EntityBase<long>)))
+                {
+                    var parameter = Expression.Parameter(mutableEntityType.ClrType);
+                    var body = ReplacingExpressionVisitor.Replace(filterExpr.Parameters.First(), parameter, filterExpr.Body);
+                    var lambdaExpression = Expression.Lambda(body, parameter);
+
+                    mutableEntityType.SetQueryFilter(lambdaExpression);
+                }
+            }
         }
 
         public override int SaveChanges()
