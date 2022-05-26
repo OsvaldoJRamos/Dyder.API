@@ -1,8 +1,9 @@
-﻿namespace Dyder.Domain.Entities
+﻿using Dyder.Domain.Entities.Base;
+
+namespace Dyder.Domain.Entities
 {
-    public class FormaPagamento
+    public class FormaPagamento : EntityBase<long>
     {
-        public int Id { get; private set; }
         public string Descricao { get; private set; }
 
         public FormaPagamento(string descricao)

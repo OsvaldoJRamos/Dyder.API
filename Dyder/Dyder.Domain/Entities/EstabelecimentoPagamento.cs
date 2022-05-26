@@ -1,22 +1,19 @@
-﻿namespace Dyder.Domain.Entities
-{
-    public class EstabelecimentoPagamento
-    {
-        public int Id { get; private set; }
-        
-        private int EstabelecimentoId;
-        public virtual Estabelecimento Estabelecimento { get; private set; }
+﻿using Dyder.Domain.Entities.Base;
+using System.ComponentModel.DataAnnotations.Schema;
 
-        private int FormaPagamentoId;
+namespace Dyder.Domain.Entities
+{
+    public class EstabelecimentoPagamento : EntityBase<long>
+    {
+        public virtual Estabelecimento Estabelecimento { get; set; }
         public virtual FormaPagamento FormaPagamento { get; private set; }
 
-        public EstabelecimentoPagamento(int id, int estabelecimentoId, Estabelecimento estabelecimento, int formaPagamentoId, FormaPagamento formaPagamento)
+        public EstabelecimentoPagamento(Estabelecimento estabelecimento, FormaPagamento formaPagamento)
         {
-            Id = id;
-            EstabelecimentoId = estabelecimentoId;
             Estabelecimento = estabelecimento;
-            FormaPagamentoId = formaPagamentoId;
             FormaPagamento = formaPagamento;
         }
+
+        protected EstabelecimentoPagamento() { }
     }
 }

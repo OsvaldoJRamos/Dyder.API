@@ -9,5 +9,5 @@ namespace Dyder.Repository.Repositories
         public EstabelecimentoRepository(ApplicationDbContext context) : base(context)
         {
         }
-    }
+    }  
 }

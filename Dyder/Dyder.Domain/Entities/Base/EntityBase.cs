@@ -7,6 +7,12 @@
         public DateTime? ModificadoEm { get; private set; }
         public DateTime? DeletadoEm { get; private set; }
         public bool EstaAtivo { get; private set; } = true;
+
+        public void Excluir()
+        {
+            DeletadoEm = DateTime.Now;
+            EstaAtivo = false;
+        }
         //public abstract void Validar();
     }
 }
