@@ -13,6 +13,7 @@ namespace Dyder.Repository
         DbSet<Estabelecimento> Estabelecimento { get; set; }
         DbSet<FormaPagamento> FormaPagamento { get; set; }
         DbSet<EstabelecimentoPagamento> EstabelecimentoPagamento { get; set; }
+        DbSet<HorarioFuncionamento> HorarioFuncionamento { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {

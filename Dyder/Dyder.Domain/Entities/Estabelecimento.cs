@@ -1,4 +1,5 @@
-﻿using Dyder.Domain.Entities.Base;
+﻿using Dyder.Domain.Constants;
+using Dyder.Domain.Entities.Base;
 
 namespace Dyder.Domain.Entities
 {
@@ -9,9 +10,37 @@ namespace Dyder.Domain.Entities
             Nome = nome;
         }
 
+
         public string Nome { get; private set; }
+        public DateTime? AbertoAte { get; private set; }
+        public DateTime FechadoAte { get; private set; }
+
+        //public bool EstaAberto()
+        //{
+        //    var dataAtual = DateTime.Now;
+        //    var diaDaSemanaAtual = DateTime.Now.DayOfWeek;
+        //    var horarioAtual = new TimeOnly().Add(dataAtual.TimeOfDay);
+
+        //    return
+        //           (!FechadoTemporariamenteAte.HasValue || dataAtual > FechadoTemporariamenteAte)
+        //        && (!AbertoTemporariamenteAte.HasValue || dataAtual < AbertoTemporariamenteAte)
+        //        && (HorariosFuncionamento.Any(h => h.DiaSemana == diaDaSemanaAtual && horarioAtual.IsBetween(h.HoraAbertura, h.HoraFechamento)));
+        //}
+
+        //public void AbrirTemporariamente(DateTime abrirAte)
+        //{
+        //    FechadoTemporariamenteAte = null;
+        //    AbertoTemporariamenteAte = abrirAte;
+        //}
+
+        //public void FecharTemporariamente(DateTime fecharAte)
+        //{
+        //    FechadoTemporariamenteAte = fecharAte;
+        //    AbertoTemporariamenteAte = null;
+        //}
 
         public virtual ICollection<EstabelecimentoPagamento> FormasPagamento { get; private set; }
+        public virtual ICollection<HorarioFuncionamento> HorariosFuncionamento { get; private set; }
 
         public EstabelecimentoPagamento AdicionarFormaPagamento(FormaPagamento formaPagamento)
         {
@@ -24,13 +53,22 @@ namespace Dyder.Domain.Entities
 
             return estabelecimentoPagamento;
         }
-
         public void RemoverFormaPagamento(long formaPagamentoId)
         {
             var formaPagamentoExistente = FormasPagamento.FirstOrDefault(f => f.FormaPagamento.Id == formaPagamentoId);
-            
+
             if (formaPagamentoExistente != null)
                 formaPagamentoExistente.Excluir();
         }
+
+    }
+
+    public class HorarioFuncionamento : EntityBase<long>
+    {
+        public DayOfWeek DiaSemana { get; private set; }
+        public TimeOnly HoraAbertura { get; private set; }
+        public TimeOnly HoraFechamento { get; private set; }
+        public virtual Estabelecimento Estabelecimento { get; private set; }
+
     }
 }
