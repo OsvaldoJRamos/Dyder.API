@@ -1,12 +1,14 @@
 ﻿using Dyder.Domain.Entities.Base;
 using System.Linq.Expressions;
 using Dyder.Repository.Repositories.Interfaces;
+using System.Linq;
 
 namespace Dyder.Repository.Repositories.Interfaces.Base
 {
     public interface IRepositoryBase<TEntity, TId> where TEntity : EntityBase<TId>
     {
         Task<TEntity> AddAsync(TEntity entity, CancellationToken cancellationToken);
+        Task AddRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken);
         Task<TEntity> UpdateAsync(TEntity entity, CancellationToken cancellationToken);
         Task DeleteByIdAsync(TId id, CancellationToken cancellationToken);
         Task DeleteAsync(TEntity entity, CancellationToken cancellationToken);

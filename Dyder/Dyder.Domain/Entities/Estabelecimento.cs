@@ -13,31 +13,31 @@ namespace Dyder.Domain.Entities
 
         public string Nome { get; private set; }
         public DateTime? AbertoAte { get; private set; }
-        public DateTime FechadoAte { get; private set; }
+        public DateTime? FechadoAte { get; private set; }
 
-        //public bool EstaAberto()
-        //{
-        //    var dataAtual = DateTime.Now;
-        //    var diaDaSemanaAtual = DateTime.Now.DayOfWeek;
-        //    var horarioAtual = new TimeOnly().Add(dataAtual.TimeOfDay);
+        public bool EstaAberto()
+        {
+            var dataAtual = DateTime.Now;
+            var diaDaSemanaAtual = DateTime.Now.DayOfWeek;
+            var horarioAtual = new TimeOnly().Add(dataAtual.TimeOfDay);
 
-        //    return
-        //           (!FechadoTemporariamenteAte.HasValue || dataAtual > FechadoTemporariamenteAte)
-        //        && (!AbertoTemporariamenteAte.HasValue || dataAtual < AbertoTemporariamenteAte)
-        //        && (HorariosFuncionamento.Any(h => h.DiaSemana == diaDaSemanaAtual && horarioAtual.IsBetween(h.HoraAbertura, h.HoraFechamento)));
-        //}
+            return
+                   (!FechadoAte.HasValue || dataAtual > FechadoAte)
+                && (!AbertoAte.HasValue || dataAtual < AbertoAte)
+                && (HorariosFuncionamento.Any(h => h.DiaSemana == diaDaSemanaAtual && horarioAtual.IsBetween(h.HoraAbertura, h.HoraFechamento)));
+        }
 
-        //public void AbrirTemporariamente(DateTime abrirAte)
-        //{
-        //    FechadoTemporariamenteAte = null;
-        //    AbertoTemporariamenteAte = abrirAte;
-        //}
+        public void AbrirTemporariamente(DateTime abrirAte)
+        {
+            FechadoAte = null;
+            AbertoAte = abrirAte;
+        }
 
-        //public void FecharTemporariamente(DateTime fecharAte)
-        //{
-        //    FechadoTemporariamenteAte = fecharAte;
-        //    AbertoTemporariamenteAte = null;
-        //}
+        public void FecharTemporariamente(DateTime fecharAte)
+        {
+            FechadoAte = fecharAte;
+            AbertoAte = null;
+        }
 
         public virtual ICollection<EstabelecimentoPagamento> FormasPagamento { get; private set; }
         public virtual ICollection<HorarioFuncionamento> HorariosFuncionamento { get; private set; }
@@ -60,15 +60,6 @@ namespace Dyder.Domain.Entities
             if (formaPagamentoExistente != null)
                 formaPagamentoExistente.Excluir();
         }
-
-    }
-
-    public class HorarioFuncionamento : EntityBase<long>
-    {
-        public DayOfWeek DiaSemana { get; private set; }
-        public TimeOnly HoraAbertura { get; private set; }
-        public TimeOnly HoraFechamento { get; private set; }
-        public virtual Estabelecimento Estabelecimento { get; private set; }
 
     }
 }

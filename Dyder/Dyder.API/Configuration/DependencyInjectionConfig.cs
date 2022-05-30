@@ -12,12 +12,14 @@ namespace Dyder.API.Configuration
             services.AddScoped<IEstabelecimentoService, EstabelecimentoService>();
             services.AddScoped<IFormaPagamentoService, FormaPagamentoService>();
             services.AddScoped<IIdentityService, IdentityService>();
+            services.AddScoped<IHorarioFuncionamentoService, HorarioFuncionamentoService>();
         }    
         
         public static void RegisterRepositories(this IServiceCollection services)
         {
             services.AddScoped<IEstabelecimentoRepository, EstabelecimentoRepository>();
             services.AddScoped<IFormaPagamentoRepository, FormaPagamentoRepository>();
+            services.AddScoped<IHorarioFuncionamentoRepository, HorarioFuncionamentoRepository>();
         }
     }
 }

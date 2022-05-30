@@ -18,6 +18,7 @@ namespace Dyder.Repository
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
             Estabelecimento.Include(x => x.FormasPagamento).ToList();
+            Estabelecimento.Include(x => x.HorariosFuncionamento).ToList();
             EstabelecimentoPagamento.Include(x => x.FormaPagamento).ToList();
             EstabelecimentoPagamento.Include(x => x.Estabelecimento).ToList();
         }

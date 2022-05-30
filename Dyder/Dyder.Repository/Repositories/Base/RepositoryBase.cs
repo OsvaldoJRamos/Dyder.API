@@ -24,6 +24,9 @@ namespace Dyder.Repository.Repositories.Base
         public async Task<TEntity> AddAsync(TEntity entity, CancellationToken cancellationToken) =>
             await Task.Run(() => _dataset.Add(entity).Entity);
 
+        public async Task AddRangeAsync(IEnumerable<TEntity> entities, CancellationToken cancellationToken) =>
+            await Task.Run(() => _dataset.AddRangeAsync(entities));
+
         public async Task DeleteAsync(TEntity entity, CancellationToken cancellationToken) =>
             await Task.Run(() => _dataset.Remove(entity));
 
@@ -37,8 +40,8 @@ namespace Dyder.Repository.Repositories.Base
            await Task.Run(() => _dataset.RemoveRange(entityArray));
 
         public async Task<TEntity> GetByIdAsync(TId id, CancellationToken cancellationToken) =>
-            await _dataset.FindAsync(id);  
-        
+            await _dataset.FindAsync(id);
+
         public async Task<bool> ExistsByIdAsync(TId id, CancellationToken cancellationToken) =>
             await _dataset.FindAsync(id) != null;
 

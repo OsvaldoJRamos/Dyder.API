@@ -11,5 +11,5 @@ namespace Dyder.Application.Services.Interfaces
         Task<Estabelecimento> CriarAsync(CriarEstabelecimentoDto request, CancellationToken cancellationToken);
         Task<Estabelecimento> AdicionarFormaPagamentoAsync(long formaPagamentoId, long estabelecimentoId, CancellationToken cancellationToken);
         Task<Estabelecimento> ExcluirFormaPagamentoAsync(long formaPagamentoId, long estabelecimentoId, CancellationToken cancellationToken);
-    }  
+    }
 }
