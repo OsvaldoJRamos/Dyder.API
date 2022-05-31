@@ -1,4 +1,4 @@
-﻿namespace Dyder.Domain.Dto.Request
+﻿namespace Dyder.Domain.Dto
 {
     public class TimeOnlyDto
     {

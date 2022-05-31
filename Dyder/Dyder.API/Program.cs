@@ -3,6 +3,7 @@ using Dyder.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Text.Json.Serialization;
+using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
@@ -55,6 +56,7 @@ builder.Services.AddSwaggerGen(c =>
 
 builder.Services.RegisterServices();
 builder.Services.RegisterRepositories();
+builder.Services.AddAutoMapper(typeof(Program));
 
 var app = builder.Build();
 

@@ -4,6 +4,8 @@ using Dyder.Domain.Dto.Request;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Dyder.Application.Services.Interfaces;
+using AutoMapper;
+using Dyder.API.ViewModels;
 
 namespace Dyder.API.Controllers
 {
@@ -12,11 +14,13 @@ namespace Dyder.API.Controllers
     public class EstabelecimentoController : ControllerBase
     {
         private readonly IEstabelecimentoService _estabelecimentoService;
+        private readonly IMapper _mapper;
 
         public EstabelecimentoController(
-            IEstabelecimentoService estabelecimentoService)
+            IEstabelecimentoService estabelecimentoService, IMapper mapper)
         {
             _estabelecimentoService = estabelecimentoService;
+            _mapper = mapper;
         }
 
         [HttpPost]
@@ -77,7 +81,8 @@ namespace Dyder.API.Controllers
             try
             {
                 var estabelecimento = await _estabelecimentoService.GetByIdAsync(id, cancellationToken);
-                return new ObjectResult(estabelecimento);
+                var viewModel = _mapper.Map<EstabelecimentoViewModel>(estabelecimento);
+                return new ObjectResult(viewModel);
             }
             catch (Exception ex)
             {
